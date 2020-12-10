@@ -17,13 +17,24 @@
  * Define Global Variables
  * 
 */
-
-
+const sections = document.querySelectorAll(".section");
+console.log(sections);
 /**
  * End Global Variables
  * Start Helper Functions
  * 
 */
+function isInViewPort (element){
+    const rect = element.getBoundingClientRect();
+    return (
+        rect.top >= 0 &&
+        rect.left >= 0 &&
+        rect.bottom <= (window.innerHeight || document.documentElement.clientHeight) &&
+        rect.right <= (window.innerWidth || document.documentElement.clientWidth)
+    );
+}
+
+
 
 
 
@@ -34,7 +45,17 @@
 */
 
 // build the nav
+function listMaker (listOfObjects){
+    let emptyList = '';
+    for(let obj of listOfObjects ){
+        emptyList += `<li> <a href="#${obj.id}">  ${obj.dataset.nav}  </a> </li>`;
+    }
+    
+    return emptyList;
+}
 
+const navList = document.querySelector('#navbar__list');
+navList.innerHTML = listMaker(sections); 
 
 // Add class 'active' to section when near top of viewport
 
