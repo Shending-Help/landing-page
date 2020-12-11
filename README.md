@@ -1,13 +1,3 @@
-# Landing Page Project
+a multi-section landing page. Often times, we don’t know how much content will be added to a page through a CMS or an API. To circumvent this problem, i added the content to the page. will be demonstrating this with the navigation menu. Additionally, dynamically building the navigation
 
-## Table of Contents
-
-* [Instructions](#instructions)
-
-## Instructions
-
-The starter project has some HTML and CSS styling to display a static version of the Landing Page project. You'll need to convert this project from a static project to an interactive one. This will require modifying the HTML and CSS files, but primarily the JavaScript file.
-
-To get started, open `js/app.js` and start building out the app's functionality
-
-For specific, detailed instructions, look at the project instructions in the Udacity Classroom.
+To improve the user experience, the section actively being viewed is highlighted. Additionally, when a user clicks on a navigation item, the item scrolls you to the appropriate section rather than giving you the default jump.
