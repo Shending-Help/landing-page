@@ -37,28 +37,27 @@ navList.innerHTML = listMaker(sections);
 /*
  Define selector for selecting 
  anchor links with the hash 
+
+Collect all such anchor links 
 */
-let anchorSelector = 'a[href^="#"]'; 
-      
-// Collect all such anchor links 
-let anchorList =  document.querySelectorAll(anchorSelector); 
+let anchorsList =  document.querySelectorAll('a[href^="#"]'); 
                
           
 // Iterate through each of the links 
-anchorList.forEach(link => { 
+anchorsList.forEach(link => { 
     link.onclick = function (e)    { 
       
-        // Prevent scrolling if the 
-        // hash value is blank 
+        // perevent scrolling if there is a blank hash value 
+         
         e.preventDefault(); 
           
-        // Get the destination to scroll to 
-        // using the hash property 
+        // Using the hash property, get the destination to scroll to
+         
         let destination =  
         document.querySelector(this.hash); 
           
-        // Scroll to the destination using 
-        // scrollIntoView method 
+        // Using the scrollIntoView method to scroll to the destination
+         
         destination.scrollIntoView({ 
             behavior: 'smooth' 
         }); 
