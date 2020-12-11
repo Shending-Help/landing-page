@@ -59,6 +59,20 @@ navList.innerHTML = listMaker(sections);
 
 // Add class 'active' to section when near top of viewport
 
+window.addEventListener('scroll',  () => {
+    for(let sec of sections){
+        if (isInViewPort(sec)) {
+            
+            sec.classList.add("your-active-class");
+            
+        }
+        else{
+            sec.classList.remove("your-active-class");
+
+        }
+    }
+},true);
+
 
 // Scroll to anchor ID using scrollTO event
 
