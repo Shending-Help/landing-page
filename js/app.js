@@ -7,27 +7,16 @@ const sections = document.querySelectorAll(".section");
 const originalColor = sections[0].style.backgroundColor ; 
 
 // this function checks if a given element is in viewport or not
-
-function isInViewPort(element) {
-    var rect     = element.getBoundingClientRect(),
-        vWidth   = window.innerWidth || document.documentElement.clientWidth,
-        vHeight  = window.innerHeight || document.documentElement.clientHeight,
-        efp      = function (x, y) { return document.elementFromPoint(x, y) };     
-
-        
-    // Return false if it's not in the viewport
-    if (rect.right < 0 || rect.bottom < 0 
-            || rect.left > vWidth || rect.top > vHeight)
-        return false;
-
-    // Return true if any of its four corners are visible
+function isInViewPort (element){
+    const rect = element.getBoundingClientRect();
     return (
-          element.contains(efp(rect.left,  rect.top))
-      ||  element.contains(efp(rect.right, rect.top))
-      ||  element.contains(efp(rect.right, rect.bottom))
-      ||  element.contains(efp(rect.left,  rect.bottom))
+        rect.top >= 0 &&
+        rect.left >= 0 &&
+        rect.top <= (window.innerHeight || document.documentElement.clientHeight) &&
+        rect.right <= (window.innerWidth || document.documentElement.clientWidth)
     );
 }
+
 
 /* this function returns the innerHTML for the unorderedlist also links every 
 item to its section through href attribute
